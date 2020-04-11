@@ -1,0 +1,9 @@
+.edit-button {
+  background-image: url('../../images/EditButton.png');
+  background-color: black;
+  width: 24px;
+  height: 24px;
+  text-decoration: none;
+  border: none;
+  margin-bottom: 23px;
+}

@@ -1,0 +1,8 @@
+.add-button {
+  background-image: url('../../images/Vector2.png');
+  background-color: black;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 150px;
+  height: 50px;
+}
