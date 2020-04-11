@@ -9,3 +9,10 @@
   padding-top: 45px;
   padding-bottom: 40px;
 }
+
+@media screen and (max-width: 940px) {
+  .header {
+    padding-top: 28px;
+  }
+}
+

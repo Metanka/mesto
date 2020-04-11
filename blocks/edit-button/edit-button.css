@@ -6,4 +6,15 @@
   text-decoration: none;
   border: none;
   margin-bottom: 23px;
+  margin-left: 12px;
+}
+
+@media screen and (max-width: 610px) {
+  .edit-button {
+    width: 18px;
+    height: 18px;
+    background-position: center;
+    border: 1px solid white;
+    margin: 0;
+  }
 }

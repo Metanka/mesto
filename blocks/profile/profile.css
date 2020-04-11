@@ -12,3 +12,26 @@
   max-height: 120px;
   margin: 40px auto 50px auto;
 }
+
+@media screen and (max-width: 910px) {
+  .profile {
+    margin: 30px 27px 30px 27px;
+  }
+}
+
+@media screen and (max-width: 707px) {
+  .profile {
+    max-width: 582px;
+    max-height: 400px;
+    flex-direction: column;
+    margin: 42px auto 36px auto;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .profile {
+    max-width: 282px;
+    max-height: 400px;
+    flex-direction: column;
+  }
+}

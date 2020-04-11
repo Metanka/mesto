@@ -1,8 +1,0 @@
-.profile__buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 47%;
-  align-items: center;
-  padding-left: 24px;
-}

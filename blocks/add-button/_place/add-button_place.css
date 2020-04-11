@@ -1,0 +1,9 @@
+.add-button_place {
+  margin-left: auto;
+}
+
+@media screen and (max-width: 707px) {
+  .add-button_place {
+    margin: auto;
+  }
+}
