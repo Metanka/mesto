@@ -1,0 +1,20 @@
+.popup__close {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-image: url('../../../images/CloseIcon.png');
+  background-color: rgba(0, 0, 0, 0);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 40.7px;
+  height: 40.7px;
+  position: fixed;
+  top: calc(50% - (330px / 2 + 40.7px));
+  left: calc(50% + 287px);
+  cursor: pointer;
+}
+
+.popup__close:hover {
+  opacity: 0.6;
+}

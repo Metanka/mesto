@@ -8,6 +8,7 @@
 @import url('../elements/elements.css');
 @import url('../element/element.css');
 @import url('../footer/footer.css');
+@import url('../popup/popup.css');
 
 .page {
   font-family: 'Inter', Arial, Helvetica, sans-serif;

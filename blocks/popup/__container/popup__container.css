@@ -1,0 +1,15 @@
+.popup__container {
+  width: 430px;
+  height: 330px;
+  background-color: white;
+  padding-left: 36px;
+  padding-right: 36px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 10px;
+  position: fixed;
+  top: calc(50% - (330px / 2));
+  left: calc(50% - (430px / 2));
+  
+}
