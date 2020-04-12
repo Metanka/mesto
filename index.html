@@ -8,16 +8,16 @@
  </head>
  <body>
    <div class="page">
-    <div class="popup">
+    <div class="popup popup_hidden">
       <button class="popup__close"></button>
-      <div class="popup__container">
+      <form class="popup__container">
        <h2 class="popup__title">Редактировать профиль</h2>
        <input type="text" placeholder="Имя" value="Жак-Ив Кусто" class="popup__input popup__input_type-name">
        <input type="text" placeholder="Род деятельности" value="Исследователь океана" class="popup__input popup__input_type-job">
-       <button class="popup__btn popup__btn_action_add">
+       <button type="submit" class="popup__btn popup__btn_action_add">
          Сохранить
        </button>
-      </div> 
+      </form> 
     </div>
      <header class="header">
       <img class="header__logo" src="./images/Vector.png">
@@ -25,7 +25,10 @@
      <section class="profile">
        <img class="profile__avatar" src="images/Avatar.jpg" alt="анфас улыбающегося дедушки в красной шапке">
        <div class="profile__info">
-         <h1 class="profile__title">Жак-Ив Кусто <button class="edit-button"></button></h1>
+         <div class="profile__title-box">
+           <h1 class="profile__title">Жак-Ив Кусто </h1>
+           <button class="edit-button"></button>
+         </div>
          <p class="profile__subtitle">Исследователь океана</p>
        </div>
        <button class="add-button add-button_place"></button>
@@ -78,5 +81,6 @@
        <p class="footer__copyright">&copy; 2020 Алина Вигдорова</p>
      </footer>
    </div>
+   <script src="./script.js"></script>
  </body>
 </html>
