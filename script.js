@@ -24,6 +24,6 @@ popupClose.addEventListener('click', changeClassPopupHidden);
 popupForm.addEventListener('submit', formSubmitHandler);
 editButton.addEventListener('click', function () {
   changeClassPopupHidden();
-  nameInput.value = document.querySelector('.profile__title').textContent;
-  jobInput.value = document.querySelector('.profile__subtitle').textContent;
+  nameInput.value = profileTitle.textContent;
+  jobInput.value = profileSubtitle.textContent;
 });

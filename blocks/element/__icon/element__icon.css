@@ -1,5 +1,7 @@
 .element__icon {
-  width: 20.76px;
-  height: 18.13px;
+  background-image: url('../../../images/Vector3.png');
+  border: none;
+  width: 21.2px;
+  height: 18.5px;
   margin: auto 22.24px auto 0;
 }
