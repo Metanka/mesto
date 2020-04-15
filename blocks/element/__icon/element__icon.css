@@ -1,7 +1,8 @@
 .element__icon {
-  background-image: url('../../../images/Vector3.png');
+  background-image: url('../../../images/Group.svg');
+  background-color: white;
   border: none;
-  width: 21.2px;
-  height: 18.5px;
+  width: 21px;
+  height: 18.2px;
   margin: auto 22.24px auto 0;
 }

@@ -1,7 +1,7 @@
 @import url('./_place/add-button_place.css');
 
 .add-button {
-  background-image: url('../../images/Vector2.png');
+  background-image: url('../../images/AddButton.svg');
   background-color: black;
   background-repeat: no-repeat;
   background-position: center;
