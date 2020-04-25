@@ -1,32 +1,42 @@
-const popup = document.querySelector('.popup');
+const popupProfile = document.querySelector('.popup_profile');
+const popupAddImg = document.querySelector('.popup_add-img');
 const editButton = document.querySelector('.edit-button');
 const addButton = document.querySelector('.add-button');
-const popupForm = popup.querySelector('.popup__container');
-const popupClose = popup.querySelector('.popup__close');
+const popupForm = document.querySelector('.popup__container');
+const popupCloseProfile = popupProfile.querySelector('.popup__close');
+const popupCloseAddImg = popupAddImg.querySelector('.popup__close');
 const nameInput = document.querySelector('.popup__input_type-name');
 const jobInput = document.querySelector('.popup__input_type-job');
+const placeInput = document.querySelector('.popup__input_type-place');
+const imgInput = document.querySelector('.popup__input_type-img');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
 const elements = document.querySelector('.elements');
 
-function formSubmitHandler (evt) {
+function formProfileSubmitHandler (evt) {
     evt.preventDefault(); 
-
     profileTitle.textContent = nameInput.value;
     profileSubtitle.textContent = jobInput.value; 
-    changeClassPopupHidden();
+    changeClassPopupHidden(popupProfile);
 }
 
-function changeClassPopupHidden() {
-  popup.classList.toggle('popup_hidden')
+function changeClassPopupHidden(popup) {
+  popup.classList.toggle('popup_hidden');
 }
 
-popupClose.addEventListener('click', changeClassPopupHidden);
-popupForm.addEventListener('submit', formSubmitHandler);
+popupCloseProfile.addEventListener('click', () => changeClassPopupHidden(popupProfile));
+popupCloseAddImg.addEventListener('click', () => changeClassPopupHidden(popupAddImg));
+
+popupForm.addEventListener('submit', formProfileSubmitHandler);
+
 editButton.addEventListener('click', function () {
-  changeClassPopupHidden();
+  changeClassPopupHidden(popupProfile);
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileSubtitle.textContent;
+});
+
+addButton.addEventListener('click', function () {
+  changeClassPopupHidden(popupAddImg);
 });
 
 
@@ -72,9 +82,9 @@ const addCard = function(i) {
       elementImage.src = initialCards[i].link;
       elementImage.setAttribute('alt', `Изображение ${i}`); 
     
-    console.log({elementCard})
+    console.log({elementCard});
     elements.append(elementCard);
 };
 for (let i = 0; i < initialCards.length; i++) {
   addCard(i);
-};
+}

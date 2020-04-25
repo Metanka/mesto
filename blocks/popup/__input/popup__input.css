@@ -1,8 +1,5 @@
-@import url('./_type-job/popup__input_type-job.css');
-@import url('./_type-name/popup__input_type-name.css');
-
 .popup__input {
-  width: 100%;
+  width: 83%;
   height: 27.26px;
   border-style: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
@@ -10,6 +7,7 @@
   line-height: 17px;
   text-decoration: rgba(0, 0, 0, 1);
   outline: none;
+  margin: auto;
 }
 
 .popup__input:last-of-type {

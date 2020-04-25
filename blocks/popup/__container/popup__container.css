@@ -2,8 +2,6 @@
   width: 430px;
   height: 330px;
   background-color: white;
-  padding-left: 36px;
-  padding-right: 36px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -18,8 +16,6 @@
     width: 290px;
     height: 360px;
     left: calc(50% - (290px / 2) - 18px);
-    padding-left: 18px;
-    padding-right: 18px;
   }
 }
 
