@@ -4,8 +4,8 @@ const editButton = document.querySelector('.edit-button');
 const addButton = document.querySelector('.add-button');
 const popupFormProfile = document.querySelector('.popup__container_profile');
 const popupFormImg = document.querySelector('.popup__container_img');
-const popupCloseProfile = popupProfile.querySelector('.popup__close');
-const popupCloseAddImg = popupAddImg.querySelector('.popup__close');
+const popupCloseProfile = popupProfile.querySelector('.btn-close');
+const popupCloseAddImg = popupAddImg.querySelector('.btn-close');
 const nameInput = document.querySelector('.popup__input_type-name');
 const jobInput = document.querySelector('.popup__input_type-job');
 const placeInput = document.querySelector('.popup__input_type-place');
@@ -27,7 +27,6 @@ function changeClassPopupHidden(popup) {
 
 popupCloseProfile.addEventListener('click', () => changeClassPopupHidden(popupProfile));
 popupCloseAddImg.addEventListener('click', () => changeClassPopupHidden(popupAddImg));
-
 popupFormProfile.addEventListener('submit', formProfileSubmit);
 
 editButton.addEventListener('click', function () {
@@ -87,13 +86,10 @@ function addCard (name, link) {
   const like = card.querySelector('.element__icon');
   const elements = document.querySelector('.elements');
   const delCard = card.querySelector('.element__trash');
-
   elementTitle.textContent = name;
   elementImg.src = link;
-
   like.addEventListener('click', (evt) => evt.target.classList.toggle('element__icon_active'));
   delCard.addEventListener('click', (evt) => evt.target.parentNode.remove());
-
   elements.prepend(card);
 }
 

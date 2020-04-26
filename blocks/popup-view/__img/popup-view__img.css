@@ -1,0 +1,6 @@
+.popup-view__img {
+  width: 75vw;
+  height: 75vh;
+  z-index: 5;
+  border: none;
+}
