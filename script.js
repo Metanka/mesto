@@ -96,6 +96,7 @@ function addCard (name, link) {
   
   elementTitle.textContent = name;
   elementImg.src = link;
+  elementImg.alt = name;
   like.addEventListener('click', (evt) => evt.target.classList.toggle('element__icon_active'));
   delCard.addEventListener('click', (evt) => evt.target.parentNode.remove());
   elementImg.addEventListener('click', (evt) => {
