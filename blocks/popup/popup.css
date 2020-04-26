@@ -11,5 +11,7 @@
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   z-index: 3;
+  opacity: 1;
+  visibility: visible;
+  transition: 0.5s;
 }
-

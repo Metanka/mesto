@@ -12,7 +12,10 @@ const placeInput = document.querySelector('.popup__input_type-place');
 const imgInput = document.querySelector('.popup__input_type-img');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
-
+const popupView = document.querySelector('.popup-view');
+const viewImg = document.querySelector('.popup-view__img');
+const viewName = document.querySelector('.popup-view__name');
+const btnCloseView = document.querySelector('.btn-close_place-view');
 
 function formProfileSubmit (evt) {
     evt.preventDefault(); 
@@ -78,6 +81,10 @@ const initialCards = [
   }
 ];
 
+function changeClassViewHidden() {
+  popupView.classList.toggle('popup-view_hidden');
+}
+
 function addCard (name, link) {
   const cardTemplate = document.querySelector('#card').content;
   const card = cardTemplate.cloneNode(true);
@@ -86,15 +93,24 @@ function addCard (name, link) {
   const like = card.querySelector('.element__icon');
   const elements = document.querySelector('.elements');
   const delCard = card.querySelector('.element__trash');
+  
   elementTitle.textContent = name;
   elementImg.src = link;
   like.addEventListener('click', (evt) => evt.target.classList.toggle('element__icon_active'));
   delCard.addEventListener('click', (evt) => evt.target.parentNode.remove());
+  elementImg.addEventListener('click', (evt) => {
+    viewImg.src = evt.target.src;
+    viewName.textContent = elementTitle.textContent;
+    changeClassViewHidden();
+  });
+  btnCloseView.addEventListener('click', changeClassViewHidden);
   elements.prepend(card);
 }
+
 
 for (let i = 0; i < initialCards.length; i++) {
   const name = initialCards[i].name;
   const link = initialCards[i].link;
   addCard(name, link);
 }
+
