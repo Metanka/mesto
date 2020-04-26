@@ -1,8 +1,15 @@
+@import url('./_active/element__icon_active.css');
+
 .element__icon {
-  background-image: url('../../../images/Group.svg');
-  background-color: white;
+  background: url('../../../images/Group.svg') center no-repeat;
   border: none;
-  width: 21px;
-  height: 18.2px;
+  width: 23px;
+  height: 19px;
   margin: auto 22.24px auto 0;
+}
+
+.element__icon:hover {
+  opacity: .6;
+  cursor: pointer;
+  transform: scale(1.1);
 }
