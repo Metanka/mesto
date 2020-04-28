@@ -1,5 +1,0 @@
-.popup-view_hidden.popup-view_hidden {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s, visibility 0s linear 0.5s;
-}

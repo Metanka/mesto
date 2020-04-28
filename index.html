@@ -8,35 +8,10 @@
  </head>
  <body>
    <div class="webpage">
-    <div class="popup popup_hidden popup_profile">
-      <button class="btn-close btn-close_place-popup"></button>
-      <form class="popup__container popup__container_profile">
-       <h2 class="popup__title">Редактировать профиль</h2>
-       <input type="text" placeholder="Имя" class="popup__input popup__input_type-name">
-       <input type="text" placeholder="Род деятельности" class="popup__input popup__input_type-job">
-       <button type="submit" class="popup__btn popup__btn_action_add-profile">Сохранить</button>
-      </form>  
-    </div>
-    <div class="popup popup_hidden popup_add-img">
-      <button class="btn-close btn-close_place-popup"></button>
-      <form class="popup__container popup__container_img">
-       <h2 class="popup__title">Новое место</h2>
-       <input type="text" placeholder="Название" class="popup__input popup__input_type-place">
-       <input type="text" placeholder="Ссылка на картинку" class="popup__input popup__input_type-img">
-       <button type="submit" class="popup__btn popup__btn_action_add-img">Создать</button>
-      </form>  
-    </div>
-    <div class="popup-view popup-view_hidden">
-      <div class="popup-view__container">
-        <button class="btn-close btn-close_place-view"></button>
-        <img class="popup-view__img" alt="увеличенное изображение" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg">
-        <h2 class="popup-view__name"></h2>
-      </div>
-    </div>
-     <header class="header">
+    <header class="header">
       <img class="header__logo" src="./images/logo.svg" alt="логотип">
-     </header>
-     <section class="profile">
+    </header>
+    <section class="profile">
        <img class="profile__avatar" src="images/Avatar.jpg" alt="анфас улыбающегося дедушки в красной шапке">
        <div class="profile__info">
          <div class="profile__title-box">
@@ -46,15 +21,38 @@
          <p class="profile__subtitle">Исследователь океана</p>
        </div>
        <button class="add-button add-button_place"></button>
-     </section>
-     <section class="elements">
+    </section>
+    <section class="elements">
        
-     </section>
-     <footer class="footer">
+    </section>
+    <footer class="footer">
        <p class="footer__copyright">&copy; 2020 Алина Вигдорова</p>
-     </footer>
-   </div>
-
+    </footer>
+    <div class="popup popup_hidden popup_profile">
+      <button class="btn-close btn-close_place-popup"></button>
+      <form class="popup__container popup__container_profile">
+       <h2 class="popup__title">Редактировать профиль</h2>
+       <input type="text" placeholder="Имя" class="popup__input popup__input_type-name">
+       <input type="text" placeholder="Род деятельности" class="popup__input popup__input_type-job">
+       <button type="submit" class="popup__btn popup__btn_action_add-profile">Сохранить</button>
+      </form>  
+    </div>
+      <div class="popup popup_hidden popup_add-img">
+       <button class="btn-close btn-close_place-popup"></button>
+       <form class="popup__container popup__container_img">
+        <h2 class="popup__title">Новое место</h2>
+        <input type="text" placeholder="Название" class="popup__input popup__input_type-place">
+        <input type="text" placeholder="Ссылка на картинку" class="popup__input popup__input_type-img">
+        <button type="submit" class="popup__btn popup__btn_action_add-img">Создать</button>
+       </form>  
+      </div>
+      <div class="popup popup_view popup_hidden">
+      <div class="popup__box">
+        <button class="btn-close btn-close_place-view"></button>
+        <img class="popup__img" alt="увеличенное изображение" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg">
+        <h2 class="popup__name"></h2>
+      </div>
+      </div>
    <template id="card">
     <div class="element">
       <button class="element__trash"></button>
@@ -66,6 +64,8 @@
     </div>
   </template>
 
-   <script src="./script.js"></script>
+  
+  </div>
+  <script src="./script.js"></script>
  </body>
 </html>
