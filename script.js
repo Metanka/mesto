@@ -104,7 +104,8 @@ function createCard (name, link) {
   return card;
 }
 
-function addCard (card) {
+function addCard (name, link) {
+  const card = createCard(name, link);
   elements.prepend(card);
 }
 
@@ -113,8 +114,7 @@ function formImgSubmit (evt) {
   evt.preventDefault();
   const name = placeInput.value;
   const link = imgInput.value;
-  const card = createCard(name, link);
-  addCard(card);
+  addCard(name, link);
   togglePopup(popupAddImg);
   placeInput.value = '';
   imgInput.value = '';
@@ -122,12 +122,9 @@ function formImgSubmit (evt) {
 
 //создание карточек из массива
 function initCards () {
-  for (let i = 0; i < initialCards.length; i++) {
-    const name = initialCards[i].name;
-    const link = initialCards[i].link;
-    const card = createCard(name, link);
-    addCard(card);
-  }
+  initialCards.forEach(({ name, link }) => {
+    addCard(name, link);
+  });
 }
 
 initCards();
@@ -138,6 +135,4 @@ popupCloseAddImg.addEventListener('click', () => togglePopup(popupAddImg));
 btnCloseView.addEventListener('click', () => togglePopup(popupView));
 popupFormProfile.addEventListener('submit', formProfileSubmit);
 popupFormImg.addEventListener('submit', formImgSubmit);
-addButton.addEventListener('click', function () {
-  togglePopup(popupAddImg);
-});
+addButton.addEventListener('click', () => togglePopup(popupAddImg));
