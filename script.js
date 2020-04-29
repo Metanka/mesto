@@ -16,6 +16,7 @@ const popupView = document.querySelector('.popup_view');
 const viewImg = document.querySelector('.popup__img');
 const viewName = document.querySelector('.popup__name');
 const btnCloseView = popupView.querySelector('.btn-close');
+const elements = document.querySelector('.elements'); 
 
 function togglePopup(popup) {
   popup.classList.toggle('popup_hidden');
@@ -29,9 +30,9 @@ function formProfileSubmit (evt) {
 }
 
 function editProfile () {
-  togglePopup(popupProfile);
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileSubtitle.textContent;
+  togglePopup(popupProfile);
 }
 
 
@@ -67,7 +68,7 @@ function likeActive (evt) {
 }
 //callback для зума картинки
 function newCard (evt) {
-  const card = evt.target.parentNode;
+  const card = evt.target.closest('.element');
   const elementTitle = card.querySelector('.element__title');
   viewImg.src = evt.target.src;
   viewName.textContent = elementTitle.textContent;
@@ -75,7 +76,7 @@ function newCard (evt) {
 }
 
 function removeCard (evt) {
-  const card = evt.target.parentNode;
+  const card = evt.target.closest('.element');
   const like = card.querySelector('.element__icon');
   const elementImg = card.querySelector('.element__image');
 
@@ -104,7 +105,6 @@ function createCard (name, link) {
 }
 
 function addCard (card) {
-  const elements = document.querySelector('.elements'); 
   elements.prepend(card);
 }
 
@@ -119,6 +119,7 @@ function formImgSubmit (evt) {
   placeInput.value = '';
   imgInput.value = '';
 }
+
 //создание карточек из массива
 function initCards () {
   for (let i = 0; i < initialCards.length; i++) {
