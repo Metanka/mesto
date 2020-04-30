@@ -1,17 +1,17 @@
 .btn-close_place-popup {
   position: fixed;
-  top: calc(50% - (330px / 2 + 40.7px + 34px));
-  left: calc(50% + (330px / 2) + 10px);
+  top: calc(50% - (330px / 2) - 40px);
+  left: calc(50% + (330px / 2) + 46px);
 }
 
 @media screen and (max-width: 666px) {
   .btn-close_place-popup {
-    left: calc(50% + (280px / 2) - 18px);;
+    left: calc(50% + (280px / 2));;
   }
 }
 
 @media screen and (max-width: 400px) {
   .btn-close_place-popup {
-    left: calc(50% + 250px / 2 - 20px);
+    left: calc(50% + 250px / 2 - 7px);
   }
 }

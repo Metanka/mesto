@@ -18,24 +18,6 @@ const viewName = document.querySelector('.popup__name');
 const btnCloseView = popupView.querySelector('.btn-close');
 const elements = document.querySelector('.elements'); 
 
-function togglePopup(popup) {
-  popup.classList.toggle('popup_hidden');
-}
-
-function formProfileSubmit (evt) {
-    evt.preventDefault(); 
-    profileTitle.textContent = nameInput.value;
-    profileSubtitle.textContent = jobInput.value; 
-    togglePopup(popupProfile);
-}
-
-function editProfile () {
-  nameInput.value = profileTitle.textContent;
-  jobInput.value = profileSubtitle.textContent;
-  togglePopup(popupProfile);
-}
-
-
 const initialCards = [
   {
       name: 'Архыз',
@@ -63,6 +45,23 @@ const initialCards = [
   }
 ];
 
+function togglePopup(popup) {
+  popup.classList.toggle('popup_hidden');
+}
+
+function formProfileSubmit (evt) {
+    evt.preventDefault(); 
+    profileTitle.textContent = nameInput.value;
+    profileSubtitle.textContent = jobInput.value; 
+    togglePopup(popupProfile);
+}
+
+function editProfile () {
+  nameInput.value = profileTitle.textContent;
+  jobInput.value = profileSubtitle.textContent;
+  togglePopup(popupProfile);
+}
+
 function likeActive (evt) {
   evt.target.classList.toggle('element__icon_active');
 }
@@ -79,9 +78,11 @@ function removeCard (evt) {
   const card = evt.target.closest('.element');
   const like = card.querySelector('.element__icon');
   const elementImg = card.querySelector('.element__image');
+  const delCard = card.querySelector('.element__trash');
 
   like.removeEventListener('click', likeActive);
   elementImg.removeEventListener('click', newCard);
+  delCard.removeEventListener('click', removeCard);
 
   card.remove();
 }
