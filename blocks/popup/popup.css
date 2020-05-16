@@ -20,11 +20,9 @@
   z-index: 3;
   opacity: 1;
   visibility: visible;
-  /*transition: 0.5s;*/
   transition: 0.5s opacity;
   -webkit-transition: 0.5s opacity;
   -moz-transition: 0.5s opacity;
   -ms-transition: 0.5s opacity;
   -o-transition: 0.5s opacity;
 }
-

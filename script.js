@@ -17,6 +17,8 @@ const viewImg = document.querySelector('.popup__img');
 const viewName = document.querySelector('.popup__name');
 const btnCloseView = popupView.querySelector('.btn-close');
 const elements = document.querySelector('.elements'); 
+const popupAll = document.querySelectorAll('.popup');
+const popupOverlay = document.querySelector('.popup');
 
 const initialCards = [
   {
@@ -130,6 +132,16 @@ function initCards () {
 
 initCards();
 
+function closePopup(popup) {
+  popup.classList.add('popup_hidden');
+}
+
+function keyHandler (evt, popup) {
+  if (evt.keyCode === 27) {
+    closePopup(popup);
+  }
+}
+
 editButton.addEventListener('click', editProfile);
 popupCloseProfile.addEventListener('click', () => togglePopup(popupProfile));
 popupCloseAddImg.addEventListener('click', () => togglePopup(popupAddImg));
@@ -137,3 +149,12 @@ btnCloseView.addEventListener('click', () => togglePopup(popupView));
 popupFormProfile.addEventListener('submit', formProfileSubmit);
 popupFormImg.addEventListener('submit', formImgSubmit);
 addButton.addEventListener('click', () => togglePopup(popupAddImg));
+popupAll.forEach(popup => {
+  document.addEventListener('keydown', evt => keyHandler(evt, popup));
+  popup.addEventListener('mousedown', evt => {
+    const target = evt.target;
+    if (target.classList.contains('popup')) {
+      closePopup(popup);
+    }
+  });
+});
