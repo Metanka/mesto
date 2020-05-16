@@ -32,8 +32,8 @@
       <button class="btn-close btn-close_place-popup"></button>
       <form class="popup__container popup__container_profile">
        <h2 class="popup__title">Редактировать профиль</h2>
-       <input type="text" placeholder="Имя" class="popup__input popup__input_type-name">
-       <input type="text" placeholder="Род деятельности" class="popup__input popup__input_type-job">
+       <input type="text" placeholder="Имя" class="popup__input popup__input_type-name popup__input_error">
+       <input type="text" placeholder="Род деятельности" class="popup__input popup__input_type-job popup__input_error">
        <button type="submit" class="popup__btn popup__btn_action_add-profile">Сохранить</button>
       </form>  
     </div>
@@ -41,8 +41,10 @@
        <button class="btn-close btn-close_place-popup"></button>
        <form class="popup__container popup__container_img">
         <h2 class="popup__title">Новое место</h2>
-        <input type="text" placeholder="Название" class="popup__input popup__input_type-place">
-        <input type="text" placeholder="Ссылка на картинку" class="popup__input popup__input_type-img">
+        <input type="text" placeholder="Название" class="popup__input popup__input_type-place popup__input_error">
+        <span class="popup__input_error-text">текст</span>
+        <input type="text" placeholder="Ссылка на картинку" class="popup__input popup__input_type-img popup__input_error">
+        <span class="popup__input_error-text">текст</span>
         <button type="submit" class="popup__btn popup__btn_action_add-img">Создать</button>
        </form>  
       </div>
@@ -67,5 +69,6 @@
   
   </div>
   <script src="./script.js"></script>
+  <script src="./validate.js"></script>
  </body>
 </html>
