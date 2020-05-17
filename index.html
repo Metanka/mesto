@@ -15,7 +15,7 @@
        <img class="profile__avatar" src="images/Avatar.jpg" alt="анфас улыбающегося дедушки в красной шапке">
        <div class="profile__info">
          <div class="profile__title-box">
-           <h1 class="profile__title">Жак-Ив Кусто </h1>
+           <h1 class="profile__title">Жак-Ив Кусто</h1>
            <button class="edit-button"></button>
          </div>
          <p class="profile__subtitle">Исследователь океана</p>
@@ -30,19 +30,35 @@
     </footer>
     <div class="popup popup_hidden popup_profile">
       <button class="btn-close btn-close_place-popup"></button>
-      <form class="popup__container popup__container_profile">
+      <form class="popup__container popup__container_profile" novalidate>
        <h2 class="popup__title">Редактировать профиль</h2>
-       <input type="text" placeholder="Имя" class="popup__input popup__input_type-name">
-       <input type="text" placeholder="Род деятельности" class="popup__input popup__input_type-job">
+       <div class="input_box">
+        <input id="input-name" type="text" placeholder="Имя" required
+        class="popup__input popup__input_type-name" pattern="[A-Za-zА-ЯЁа-яё -]{2,30}">
+        <span class="popup__input_text_error" id="input-name-error"></span>
+       </div>
+       <div class="input_box">
+        <input id="input-job" type="text" placeholder="Род деятельности" required
+        class="popup__input popup__input_type-job" pattern="[A-Za-zА-ЯЁа-яё -]{2,200}">
+        <span class="popup__input_text_error" id="input-job-error"></span>
+       </div>
        <button type="submit" class="popup__btn popup__btn_action_add-profile">Сохранить</button>
       </form>  
     </div>
       <div class="popup popup_hidden popup_add-img">
        <button class="btn-close btn-close_place-popup"></button>
-       <form class="popup__container popup__container_img">
+       <form class="popup__container popup__container_img" novalidate>
         <h2 class="popup__title">Новое место</h2>
-        <input type="text" placeholder="Название" class="popup__input popup__input_type-place">
-        <input type="text" placeholder="Ссылка на картинку" class="popup__input popup__input_type-img">
+        <div class="input_box">
+          <input id="input-title" type="text" placeholder="Название"  required
+          class="popup__input popup__input_type-place" pattern="[A-Za-zА-ЯЁа-яё -]{2, 30}">
+          <span class="popup__input_text_error" id="input-title-error"></span>
+        </div>
+        <div class="input_box">
+          <input id="input-email" type="text" placeholder="Ссылка на картинку" required
+          class="popup__input popup__input_type-img" pattern="(^http|^https).+">
+          <span class="popup__input_text_error" id="input-email-error"></span>
+        </div>
         <button type="submit" class="popup__btn popup__btn_action_add-img">Создать</button>
        </form>  
       </div>
@@ -67,5 +83,6 @@
   
   </div>
   <script src="./script.js"></script>
+  <script src="./validate.js"></script>
  </body>
 </html>

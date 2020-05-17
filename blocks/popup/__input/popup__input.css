@@ -1,16 +1,23 @@
+@import url('./_error/popup__input_error.css');
+@import url('./_text_error/popup__input_text_error.css');
+@import url('./_box/input_box.css');
+
 .popup__input {
-  width: 83%;
+  width: 100%;
   height: 27.26px;
   border-style: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   font-size: 14px;
   line-height: 17px;
-  text-decoration: rgba(0, 0, 0, 1);
   outline: none;
   margin: auto;
 }
 
-.popup__input:last-of-type {
-  margin-top: 29.75px;
-  margin-bottom: 48px;
+
+::-webkit-input-placeholder {color:#C4C4C4;}
+::-moz-placeholder          {color:#C4C4C4;}/* Firefox 19+ */
+:-moz-placeholder           {color:#C4C4C4;}/* Firefox 18- */
+:-ms-input-placeholder      {color:#C4C4C4;}
+.popup__input::placeholder {
+  text-decoration: #C4C4C4;
 }
