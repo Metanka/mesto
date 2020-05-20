@@ -34,12 +34,12 @@
        <h2 class="popup__title">Редактировать профиль</h2>
        <div class="input_box">
         <input id="input-name" type="text" placeholder="Имя" required
-        class="popup__input popup__input_type-name" pattern="[A-Za-zА-ЯЁа-яё -]{2,30}">
+        class="popup__input popup__input_type-name" pattern="[A-Za-zА-ЯЁа-яё\-\s]{2,40}">
         <span class="popup__input_text_error" id="input-name-error"></span>
        </div>
        <div class="input_box">
         <input id="input-job" type="text" placeholder="Род деятельности" required
-        class="popup__input popup__input_type-job" pattern="[A-Za-zА-ЯЁа-яё -]{2,200}">
+        class="popup__input popup__input_type-job" pattern="[A-Za-zА-ЯЁа-яё\-\s]{2,200}">
         <span class="popup__input_text_error" id="input-job-error"></span>
        </div>
        <button type="submit" class="popup__btn popup__btn_action_add-profile">Сохранить</button>
@@ -51,11 +51,11 @@
         <h2 class="popup__title">Новое место</h2>
         <div class="input_box">
           <input id="input-title" type="text" placeholder="Название"  required
-          class="popup__input popup__input_type-place" pattern="[A-Za-zА-ЯЁа-яё -]{2, 30}">
+          class="popup__input popup__input_type-place" pattern="[A-Za-zА-ЯЁа-яё\-\s]{1,30}">
           <span class="popup__input_text_error" id="input-title-error"></span>
         </div>
         <div class="input_box">
-          <input id="input-email" type="text" placeholder="Ссылка на картинку" required
+          <input id="input-email" type="url" placeholder="Ссылка на картинку" required
           class="popup__input popup__input_type-img" pattern="(^http|^https).+">
           <span class="popup__input_text_error" id="input-email-error"></span>
         </div>
