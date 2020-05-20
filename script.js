@@ -1,5 +1,5 @@
 
-
+const cardTemplate = document.querySelector('#card').content;
 const popupProfile = document.querySelector('.popup_profile');
 const popupAddImg = document.querySelector('.popup_add-img');
 const editButton = document.querySelector('.edit-button');
@@ -63,7 +63,7 @@ function targetOverlay(evt) {
 }
 
 function keyHandler(evt) {
-  if (evt.keyCode === 27) {
+  if (evt.key === 'Escape') {
     closePopup();
   }
 }
@@ -86,7 +86,7 @@ function formProfileSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileSubtitle.textContent = jobInput.value;
-  closePopup(popupProfile);
+  closePopup();
 }
 
 function editProfile() {
@@ -121,7 +121,6 @@ function removeCard(evt) {
 }
 
 function createCard(name, link) {
-  const cardTemplate = document.querySelector('#card').content;
   const card = cardTemplate.cloneNode(true);
   const elementTitle = card.querySelector('.element__title');
   const elementImg = card.querySelector('.element__image');
@@ -149,7 +148,6 @@ function formImgSubmit(evt) {
   const name = placeInput.value;
   const link = imgInput.value;
   addCard(name, link);
-  openPopup(popupAddImg);
   placeInput.value = '';
   imgInput.value = '';
   closePopup();
