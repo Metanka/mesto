@@ -116,15 +116,14 @@ popupFormProfile.addEventListener('submit', formProfileSubmit);
 popupFormImg.addEventListener('submit', formImgSubmit);
 addButton.addEventListener('click', () => openPopup(popupAddImg));
 
- 
-const popupProfileValide = new FormValidator(popupFormProfile, formObject);
-popupProfileValide.enableValidation();
-
-const popupImgValidate = new FormValidator(popupFormImg, formObject);
-popupImgValidate.enableValidation();
-
 initialCards.forEach((item) => {
   const card = new Card(item.link, item.name, '#card');
   const cardElement = card.generateCard();
   elements.prepend(cardElement);
 });
+
+const popupProfileValide = new FormValidator(popupFormProfile, formObject);
+popupProfileValide.enableValidation();
+
+const popupImgValidate = new FormValidator(popupFormImg, formObject);
+popupImgValidate.enableValidation();
