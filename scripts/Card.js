@@ -1,8 +1,6 @@
 import {openPopup} from './script.js';
 
-
-export const elements = document.querySelector('.elements');
-export const popupView = document.querySelector('.popup_view');
+const popupView = document.querySelector('.popup_view');
 const viewImg = document.querySelector('.popup__img');
 const viewName = document.querySelector('.popup__name');
 
