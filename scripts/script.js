@@ -1,4 +1,4 @@
-import {Card, elements} from './Card.js';
+import {Card} from './Card.js';
 import { FormValidator } from './FormValidator.js';
 
 const initialCards = [
@@ -28,6 +28,7 @@ const initialCards = [
   }
 ];
 
+const elements = document.querySelector('.elements');
 const popupProfile = document.querySelector('.popup_profile');
 const popupAddImg = document.querySelector('.popup_add-img');
 const editButton = document.querySelector('.edit-button');
@@ -122,8 +123,8 @@ initialCards.forEach((item) => {
   elements.prepend(cardElement);
 });
 
-const popupProfileValide = new FormValidator(popupFormProfile, formObject);
-popupProfileValide.enableValidation();
+const popupProfileValidation = new FormValidator(popupFormProfile, formObject);
+popupProfileValidation.enableValidation();
 
-const popupImgValidate = new FormValidator(popupFormImg, formObject);
-popupImgValidate.enableValidation();
+const popupImgValidation = new FormValidator(popupFormImg, formObject);
+popupImgValidation.enableValidation();
