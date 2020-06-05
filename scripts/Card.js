@@ -1,6 +1,6 @@
 import {openPopup} from './script.js';
 
-const popupView = document.querySelector('.popup_view');
+export const popupView = document.querySelector('.popup_view');
 const viewImg = document.querySelector('.popup__img');
 const viewName = document.querySelector('.popup__name');
 
@@ -22,6 +22,7 @@ export class Card {
   _handleOpenPopup() {
     viewImg.src = this._link;
     viewName.textContent = this._name;
+    viewImg.alt = this._name;
     openPopup(popupView);
   }
 
@@ -48,6 +49,7 @@ export class Card {
   generateCard() {
     this._element = this._getTemplate();
     this._element.querySelector('.element__image').src = this._link;
+    this._element.querySelector('.element__image').alt = this._name;
     this._element.querySelector('.element__title').textContent = this._name;
     this._setEventListeners();
 
