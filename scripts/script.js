@@ -1,4 +1,4 @@
-import {Card} from './Card.js';
+import {Card, popupView} from './Card.js';
 import { FormValidator } from './FormValidator.js';
 
 const initialCards = [
@@ -37,6 +37,7 @@ const popupFormProfile = document.querySelector('.popup__container_profile');
 const popupFormImg = document.querySelector('.popup__container_img');
 const popupCloseProfile = popupProfile.querySelector('.btn-close');
 const popupCloseAddImg = popupAddImg.querySelector('.btn-close');
+const popupCloseView = document.querySelector('.btn-close_place-view');
 const nameInput = document.querySelector('.popup__input_type-name');
 const jobInput = document.querySelector('.popup__input_type-job');
 const placeInput = document.querySelector('.popup__input_type-place');
@@ -113,6 +114,7 @@ function formImgSubmit(evt) {
 editButton.addEventListener('click', editProfile);
 popupCloseProfile.addEventListener('click', () => closePopup(popupProfile));
 popupCloseAddImg.addEventListener('click', () => closePopup(popupAddImg));
+popupCloseView.addEventListener('click', () => closePopup(popupView));
 popupFormProfile.addEventListener('submit', formProfileSubmit);
 popupFormImg.addEventListener('submit', formImgSubmit);
 addButton.addEventListener('click', () => openPopup(popupAddImg));
