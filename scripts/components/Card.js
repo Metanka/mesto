@@ -1,8 +1,11 @@
-import {openPopup} from './script.js';
+import {openPopup} from '../../src/index.js';
+import {
+  viewImg,
+  viewName,
+  popupView
+} from '../utils/constants.js';
 
-export const popupView = document.querySelector('.popup_view');
-const viewImg = document.querySelector('.popup__img');
-const viewName = document.querySelector('.popup__name');
+
 
 export class Card {
   constructor (link, name, template) {
