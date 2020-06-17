@@ -20,7 +20,7 @@ export class FormValidator {
   }
 //возвращает если хотябы один не валиден
   _hasInvalidInput () {
-    return this._inputElements.some(input => {
+    return this._inputElements.some((input) => {
       return !input.validity.valid;
     });
   }
@@ -44,11 +44,14 @@ export class FormValidator {
         this._checkInputValidity(inputElement);
         this._toggleButtonState();
       });
+      this._formElement.addEventListener('submit', () => {
+        this._toggleButtonState();
+       });
     });
   }
 
   _clearForm () {
-    this._inputElements.forEach(input => {
+    this._inputElements.forEach((input) => {
       input.value = '';
     });
     this._toggleButtonState();
@@ -56,9 +59,9 @@ export class FormValidator {
 //валидация на все формы, инпуты и кнопки
   enableValidation () {
     this._setEventListeners();
-    this._formElement.addEventListener('submit', (evt) => {
-      evt.preventDefault();
-      this._clearForm();
-    });
+   // this._formElement.addEventListener('submit', (evt) => {
+    //   evt.preventDefault();
+    //   th is._clearForm();
+    // });
   }
 }

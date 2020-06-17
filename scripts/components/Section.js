@@ -10,9 +10,12 @@ export default class Section {
   }
 
   renderItems() {
+    if (Array.isArray(this._renderItems) ) {
     this._renderItems.forEach(item => {
       this._renderer(item);
     });
+  } else {
+      this._renderer(this._renderItems);
+    }
   }
-  
 }
