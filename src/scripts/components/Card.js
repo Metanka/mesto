@@ -1,12 +1,16 @@
-import EventListener from './EventListener';
-
-export class Card extends EventListener {
-  constructor(link, name, template, handleCardClick) {
-    super();
+export class Card {
+  constructor(link, name, template, onCardClick) {
     this._name = name;
     this._link = link;
     this._template = template;
-    this._handleCardClick = handleCardClick;
+    this._onCardClick = onCardClick;
+    this._handleCardClick = this._handleCardClick.bind(this);
+    this._likeActive = this._likeActive.bind(this);
+    this._removeCard = this._removeCard.bind(this);
+  }
+
+  _handleCardClick(){
+    this._onCardClick (this._link, this._name);
   }
 
   _getTemplate() {
@@ -22,14 +26,16 @@ export class Card extends EventListener {
   }
 
   _removeCard(evt) {
-    this._removeListeners();
+    this._image.removeEventListener('click', this._handleCardClick);
+    this._icon.removeEventListener('click', this._likeActive);
+    this._trash.removeEventListener('click', this._removeCard);
     evt.target.parentNode.remove();
   }
 
   _setEventListeners() {
-    this._addListener(this._image, 'click', () => this._handleCardClick());
-    this._addListener(this._icon, 'click', (evt) => this._likeActive(evt));
-    this._addListener(this._trash, 'click', (evt) => this._removeCard(evt));
+    this._image.addEventListener('click', this._handleCardClick);
+    this._icon.addEventListener('click', this._likeActive);
+    this._trash.addEventListener('click', this._removeCard);
   }
 
   generateCard() {

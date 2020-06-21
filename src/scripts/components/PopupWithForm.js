@@ -1,11 +1,12 @@
-import Popup from './Popup.js';
+import Popup from './Popup';
 
 export default class PopupWithForm extends Popup {
   constructor(popupSelector, callbackFunc) {
     super(popupSelector);
     this._callbackFunc = callbackFunc;
-    this._form = document.querySelector(`.${this._popupSelector}`);
+    this._form = document.querySelector(`.${this._popupSelector}`).querySelector('.popup__container');
     this._arrayInputs = Array.from(document.querySelector(`.${this._popupSelector}`).querySelectorAll('input'));
+    this._submitClose = this._submitClose.bind(this);
   }
 
   open(data) {
@@ -19,9 +20,8 @@ export default class PopupWithForm extends Popup {
 
   close() {
     super.close();
-    this._arrayInputs.forEach(input => {
-      input.value = '';
-    });
+    this._form.removeEventListener('submit', (evt) => this._submitClose(evt));
+    this._form.reset();
   }
   //1. найти массив из инпутов
   //2. reduce все инпуты в объект, где ключ - id, а значение - value
@@ -35,13 +35,15 @@ export default class PopupWithForm extends Popup {
     }, {});
     return inputsValue;
   }
+
+  _submitClose(evt) {
+    evt.preventDefault();
+    this._callbackFunc(this._getInputValues());
+    this.close();
+  }
   //1. навешивает сабмит на баттон, который вызывает callback  и туда передает return is value
   _setEventListeners() {
     super._setEventListeners();
-    this._addListener(this._form, 'submit', (evt) => {
-      evt.preventDefault();
-      this._callbackFunc(this._getInputValues());
-      this.close();
-    });
+    this._form.addEventListener('submit', (evt) => this._submitClose(evt));
   }
 }

@@ -6,6 +6,11 @@ export const popupFormProfile = document.querySelector('.popup__container_profil
 export const popupFormImg = document.querySelector('.popup__container_img');
 export const cardListSelector = '#card';
 export const containerSelector = '.elements';
+export const popupProfileSelector = 'popup_profile';
+export const popupAddImgSelector = 'popup_add-img';
+export const popupViewSelector = 'popup_view';
+export const profileTitle = 'profile__title';
+export const profileSubtitle = 'profile__subtitle';
 export const formObject = {
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__btn',
