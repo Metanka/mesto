@@ -31,38 +31,27 @@ const showUserInfo = new UserInfo({name: profileTitle, info: profileSubtitle});
 
 const popupProfileForm = new PopupWithForm(popupProfileSelector, function (inputValues) {
   showUserInfo.setUserInfo({
-    name: inputValues['profile-first'],
-    info: inputValues['profile-second'],
+    name: inputValues.name,
+    info: inputValues.info,
   });
 });
 
-const popupImgForm = new PopupWithForm(popupAddImgSelector, function (inputValues) {
-  const createCard = new Section({
-    items: inputValues,
-    renderer: (item) => {
-      const card = new Card(item['add-img-second'], item['add-img-first'], cardListSelector, function (link, name) {
-        const popupWithImg = new PopupWithImage(popupViewSelector);
-        popupWithImg.open(link, name);
-      });
-      const cardElement = card.generateCard();
-      createCard.addItem(cardElement);
-    }
-  }, containerSelector);
-  createCard.renderItem();
-});
+const popupWithImg = new PopupWithImage(popupViewSelector);
 
 const createCards = new Section({
-  items: initialCards,
-  renderer: (item) => {
-    const card = new Card(item.link, item.name, cardListSelector, function () {
-      const popupWithImg = new PopupWithImage(popupViewSelector);
-      popupWithImg.open(this._link, this._name);
+  renderer: ({link, name}) => {
+    const card = new Card(link, name, cardListSelector, function () {
+      popupWithImg.open(link, name);
     });
     const cardElement = card.generateCard();
     createCards.addItem(cardElement);
   }
 }, containerSelector);
-createCards.renderItems();
+createCards.renderItems(initialCards);
+
+const popupImgForm = new PopupWithForm(popupAddImgSelector, function (inputValue) {
+  createCards.renderItems([inputValue]);
+});
 
 editButton.addEventListener('click', () => {
   const data = showUserInfo.getUserInfo();
