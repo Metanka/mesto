@@ -20,17 +20,17 @@ export default class PopupWithForm extends Popup {
 
   close() {
     super.close();
-    this._form.removeEventListener('submit', (evt) => this._submitClose(evt));
+    this._form.removeEventListener('submit', this._submitClose);
     this._form.reset();
   }
   //1. найти массив из инпутов
   //2. reduce все инпуты в объект, где ключ - id, а значение - value
   //3. return объект
   _getInputValues() {
-    const inputsValue = this._arrayInputs.reduce((memo, {id, value}) => {
+    const inputsValue = this._arrayInputs.reduce((memo, {name, value}) => {
       return {
         ...memo,
-        [id]: value
+        [name]: value
       };
     }, {});
     return inputsValue;
@@ -44,6 +44,6 @@ export default class PopupWithForm extends Popup {
   //1. навешивает сабмит на баттон, который вызывает callback  и туда передает return is value
   _setEventListeners() {
     super._setEventListeners();
-    this._form.addEventListener('submit', (evt) => this._submitClose(evt));
+    this._form.addEventListener('submit', this._submitClose);
   }
 }

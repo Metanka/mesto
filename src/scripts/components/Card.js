@@ -9,8 +9,8 @@ export class Card {
     this._removeCard = this._removeCard.bind(this);
   }
 
-  _handleCardClick(){
-    this._onCardClick (this._link, this._name);
+  _handleCardClick() {
+    this._onCardClick(this._link, this._name);
   }
 
   _getTemplate() {
