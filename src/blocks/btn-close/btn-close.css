@@ -1,5 +1,6 @@
 @import url('./_place-popup/btn-close_place-popup.css');
 @import url('./_place-view/btn-close_place-view.css');
+@import url('./_delete-popup/btn-close_delete-popup.css');
 
 .btn-close {
   padding: 0;

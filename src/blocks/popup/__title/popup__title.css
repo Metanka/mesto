@@ -1,3 +1,4 @@
+@import url('./_delete/popup__title_delete.css');
 .popup__title {
   font-weight: 900;
   font-size: 24px;
