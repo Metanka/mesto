@@ -1,3 +1,5 @@
+@import url('./_hidden/element__trash_hidden.css');
+
 .element__trash {
   background-image: url('../../../images/Trash.svg');
   background-color: transparent;

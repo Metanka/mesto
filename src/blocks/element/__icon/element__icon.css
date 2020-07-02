@@ -1,15 +1,19 @@
 @import url('./_active/element__icon_active.css');
+@import url('./_box/element__icon_box.css');
 
 .element__icon {
   background: url('../../../images/Group.svg') center no-repeat;
   border: none;
-  width: 23px;
+  width: 21px;
   height: 19px;
-  margin: auto 22.24px auto 0;
+  margin-top: 20px;
+  margin-right: 21px;
+  object-fit: cover;
+  padding: 0;
 }
 
 .element__icon:hover {
-  opacity: .6;
+  opacity: 0.6;
   cursor: pointer;
   transform: scale(1.1);
 }

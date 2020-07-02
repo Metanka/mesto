@@ -1,84 +1,148 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="ru">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mesto</title>
- </head>
- <body>
-   <div class="webpage">
-    <header class="header">
-      <img class="header__logo" src="./images/logo.svg" alt="логотип">
-    </header>
-    <section class="profile">
-       <img class="profile__avatar" src="./images/Avatar.jpg" alt="анфас улыбающегося дедушки в красной шапке">
-       <div class="profile__info">
-         <div class="profile__title-box">
-           <h1 class="profile__title">Жак-Ив Кусто</h1>
-           <button class="edit-button"></button>
-         </div>
-         <p class="profile__subtitle">Исследователь океана</p>
-       </div>
-       <button class="add-button add-button_place"></button>
-    </section>
-    <section class="elements">
-       
-    </section>
-    <footer class="footer">
-       <p class="footer__copyright">&copy; 2020 Алина Вигдорова</p>
-    </footer>
-    <div class="popup popup_hidden popup_profile">
-      <button class="btn-close btn-close_place-popup"></button>
-      <form class="popup__container popup__container_profile" novalidate>
-       <h2 class="popup__title">Редактировать профиль</h2>
-       <div class="input_box">
-        <input id="profile-first" name="name" type="text" placeholder="Имя" required
-        class="popup__input popup__input_type-name" pattern="[A-Za-zА-ЯЁа-яё\-\s]{2,40}">
-        <span class="popup__input_text_error" id="profile-first-error"></span>
-       </div>
-       <div class="input_box">
-        <input id="profile-second" name="info" type="text" placeholder="Род деятельности" required
-        class="popup__input popup__input_type-job" pattern="[A-Za-zА-ЯЁа-яё\-\s]{2,200}">
-        <span class="popup__input_text_error" id="profile-second-error"></span>
-       </div>
-       <button type="submit" class="popup__btn popup__btn_action_add-profile">Сохранить</button>
-      </form>  
-    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mesto</title>
+  </head>
+  <body>
+    <div class="webpage">
+      <header class="header">
+        <img class="header__logo" src="./images/logo.svg" alt="логотип" />
+      </header>
+      <section class="profile">
+        <img src="./images/Vector.png" alt="редактировать" class="profile__edit">
+        <img
+          class="profile__avatar"
+          alt="анфас улыбающегося дедушки в красной шапке"
+        />
+        <div class="profile__info">
+          <div class="profile__title-box">
+            <h1 class="profile__title"></h1>
+            <button class="edit-button"></button>
+          </div>
+          <p class="profile__subtitle"></p>
+        </div>
+        <button class="add-button add-button_place"></button>
+      </section>
+      <section class="elements"></section>
+      <footer class="footer">
+        <p class="footer__copyright">&copy; 2020 Алина Вигдорова</p>
+      </footer>
+      <div class="popup popup_hidden popup_profile">
+        <button class="btn-close btn-close_place-popup"></button>
+        <form class="popup__container popup__container_profile" novalidate>
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <div class="input_box">
+            <input
+              id="profile-first"
+              name="name"
+              type="text"
+              placeholder="Имя"
+              required
+              class="popup__input popup__input_type-name"
+              pattern="[A-Za-zА-ЯЁа-яё\-\s]{2,40}"
+            />
+            <span
+              class="popup__input_text_error"
+              id="profile-first-error"
+            ></span>
+          </div>
+          <div class="input_box">
+            <input
+              id="profile-second"
+              name="info"
+              type="text"
+              placeholder="Род деятельности"
+              required
+              class="popup__input popup__input_type-job"
+              pattern="[A-Za-zА-ЯЁа-яё\-\s]{2,200}"
+            />
+            <span
+              class="popup__input_text_error"
+              id="profile-second-error"
+            ></span>
+          </div>
+          <button
+            type="submit"
+            class="popup__btn popup__btn_action_add-profile"
+          >
+            Сохранить
+          </button>
+        </form>
+      </div>
       <div class="popup popup_hidden popup_add-img">
-       <button class="btn-close btn-close_place-popup"></button>
-       <form class="popup__container popup__container_img" novalidate>
-        <h2 class="popup__title">Новое место</h2>
-        <div class="input_box">
-          <input id="add-img-first" name="name" type="text" placeholder="Название"  required
-          class="popup__input popup__input_type-place" pattern="[A-Za-zА-ЯЁа-яё\-\s]{1,30}">
-          <span class="popup__input_text_error" id="add-img-first-error"></span>
-        </div>
-        <div class="input_box">
-          <input id="add-img-second" name="link" type="url" placeholder="Ссылка на картинку" required
-          class="popup__input popup__input_type-img" pattern="(^http|^https).+">
-          <span class="popup__input_text_error" id="add-img-second-error"></span>
-        </div>
-        <button type="submit" class="popup__btn popup__btn_action_add-img">Создать</button>
-       </form>  
+        <button class="btn-close btn-close_place-popup"></button>
+        <form class="popup__container popup__container_img" novalidate>
+          <h2 class="popup__title">Новое место</h2>
+          <div class="input_box">
+            <input
+              id="add-img-first"
+              name="name"
+              type="text"
+              placeholder="Название"
+              required
+              class="popup__input popup__input_type-place"
+              pattern="[A-Za-zА-ЯЁа-яё\-\s]{1,30}"
+            />
+            <span
+              class="popup__input_text_error"
+              id="add-img-first-error"
+            ></span>
+          </div>
+          <div class="input_box">
+            <input
+              id="add-img-second"
+              name="link"
+              type="url"
+              placeholder="Ссылка на картинку"
+              required
+              class="popup__input popup__input_type-img"
+              pattern="(^http|^https).+"
+            />
+            <span
+              class="popup__input_text_error"
+              id="add-img-second-error"
+            ></span>
+          </div>
+          <button type="submit" class="popup__btn popup__btn_action_add-img">
+            Создать
+          </button>
+        </form>
       </div>
       <div class="popup popup_view popup_hidden">
-      <div class="popup__box">
-        <button class="btn-close btn-close_place-view"></button>
-        <img class="popup__img" alt="увеличенное изображение" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg">
-        <h2 class="popup__name"></h2>
+        <div class="popup__box">
+          <button class="btn-close btn-close_place-view"></button>
+          <img
+            class="popup__img"
+            alt="увеличенное изображение"
+            src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg"
+          />
+          <h2 class="popup__name"></h2>
+        </div>
       </div>
+      <div class="popup popup_delete popup_hidden">
+        <button class="btn-close btn-close_delete-popup"></button>
+        <form class="popup__container popup__container_delete">
+          <h2 class="popup__title popup__title_delete">Вы уверены?</h2>
+          <button type="submit" class="popup__btn popup__btn_delete">
+            Да
+          </button>
+        </form>
       </div>
-   <template id="card">
-    <div class="element">
-      <button class="element__trash"></button>
-      <img class="element__image">
-      <div class="element__info">
-        <h2 class="element__title"></h2>
-        <button class="element__icon"></button>
-      </div>
+      <template id="card">
+        <div class="element">
+          <button class="element__trash"></button>
+          <img class="element__image" />
+          <div class="element__info">
+            <h2 class="element__title"></h2>
+            <div class="element__icon_box">
+              <button class="element__icon"></button>
+              <p class="element__counter"></p>
+            </div>
+          </div>
+        </div>
+      </template>
     </div>
-  </template>
-  </div>
- </body>
+  </body>
 </html>
-
