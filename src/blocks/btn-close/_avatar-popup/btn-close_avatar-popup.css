@@ -1,0 +1,5 @@
+.btn-close_avatar-popup {
+  position: fixed;
+  top: calc(50% - (272px / 2) - 40px);
+  left: calc(50% + (340px / 2) + 40px);
+}

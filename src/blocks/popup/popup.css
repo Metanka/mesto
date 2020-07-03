@@ -10,6 +10,7 @@
 @import url('./_profile/button_profile.css');
 @import url('./_view/popup_view.css');
 @import url('./_delete/popup_delete.css');
+@import url('./_change-avatar/popup_change-avatar.css');
 
 .popup {
   width: 100vw;

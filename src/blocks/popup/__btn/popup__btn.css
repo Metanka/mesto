@@ -1,5 +1,6 @@
 @import url('./_inactive/popup__btn_inactive.css');
 @import url('./_delete/popup__btn_delete.css');
+@import url('./_action_avatar/popup__btn_action_avatar.css');
 
 .popup__btn {
   width: 83%;

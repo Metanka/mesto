@@ -11,11 +11,13 @@
         <img class="header__logo" src="./images/logo.svg" alt="логотип" />
       </header>
       <section class="profile">
-        <img src="./images/Vector.png" alt="редактировать" class="profile__edit">
-        <img
-          class="profile__avatar"
-          alt="анфас улыбающегося дедушки в красной шапке"
-        />
+        <div class="profile__box">
+          <img
+            class="profile__avatar"
+            alt="анфас улыбающегося дедушки в красной шапке"
+          />
+          <div class="profile__edit"></div>
+        </div>
         <div class="profile__info">
           <div class="profile__title-box">
             <h1 class="profile__title"></h1>
@@ -107,6 +109,30 @@
           </div>
           <button type="submit" class="popup__btn popup__btn_action_add-img">
             Создать
+          </button>
+        </form>
+      </div>
+      <div class="popup popup_hidden popup_change-avatar">
+        <button class="btn-close btn-close_avatar-popup"></button>
+        <form class="popup__container popup__container_avatar" novalidate>
+          <h2 class="popup__title">Обновить аватар</h2>
+          <div class="input_box">
+            <input
+              id="avatar-first"
+              name="link"
+              type="url"
+              placeholder="Ссылка на аватар"
+              required
+              class="popup__input popup__input_type-avatar"
+              pattern="(^http|^https).+"
+            />
+            <span
+              class="popup__input_text_error"
+              id="avatar-first-error"
+            ></span>
+          </div>
+          <button type="submit" class="popup__btn popup__btn_action_avatar">
+            Сохранить
           </button>
         </form>
       </div>
