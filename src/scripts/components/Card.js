@@ -1,22 +1,29 @@
 export class Card {
-  constructor(link, name, likes, owner, _id, template, onCardClick, onDeleteClick, onLikeClick) {
+  constructor(link, name, likes, owner, _id, template, onCardClick, onDeleteClick, onLikeClick, deleteLikeClick, profileInfo) {
     this._name = name;
     this._link = link;
+    this._profileInfo = profileInfo;
     this._cardProfileId = owner._id;
     this._template = template;
     this._onCardClick = onCardClick;
     this._onDeleteClick = onDeleteClick;
     this._onLikeClick = onLikeClick;
     this._count = likes;
+    this._deleteLikeClick = deleteLikeClick;
     this._handleCardClick = this._handleCardClick.bind(this);
     this._likeActive = this._likeActive.bind(this);
     this.removeCard = this.removeCard.bind(this);
     this._handleCardDelete = this._handleCardDelete.bind(this);
     this._handleLikeClick = this._handleLikeClick.bind(this);
+    this._deleteLikeClick = this._deleteLikeClick.bind(this);
   }
-  
+
   _handleLikeClick(evt) {
-    this._onLikeClick();
+    if (evt.target.classList.contains('element__icon_active')) {
+      this._deleteLikeClick();
+    } else {
+      this._onLikeClick();
+    }
     this._likeActive(evt);
   }
 
@@ -61,6 +68,14 @@ export class Card {
 
   setCounterInfo(data) {
     this._counter.textContent = data.length;
+    this._profileInfo.then(res => {
+      data.forEach(item => {
+        if (item.name == res.name) {
+          this._icon.classList.add('element__icon_active');
+        }
+      });
+    }
+    );
   }
 
   generateCard() {

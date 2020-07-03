@@ -1,6 +1,7 @@
 @import url('./_error/popup__input_error.css');
 @import url('./_text_error/popup__input_text_error.css');
 @import url('./_box/input_box.css');
+@import url('./_type-avatar/popup__input_type-avatar.css');
 
 .popup__input {
   width: 100%;
@@ -11,6 +12,7 @@
   line-height: 17px;
   outline: none;
   margin: auto;
+  margin-top: 0;
 }
 
 

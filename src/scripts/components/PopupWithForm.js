@@ -23,6 +23,15 @@ export default class PopupWithForm extends Popup {
     this._form.removeEventListener('submit', this._submitClose);
     this._form.reset();
   }
+
+  _renderLoading(isLoading) {
+    if (isLoading) {
+      this._form.querySelector('button').textContent = 'Сохранение...';
+    } else {
+      this._form.querySelector('button').textContent = 'Сохранить';
+    }
+  }
+
   //1. найти массив из инпутов
   //2. reduce все инпуты в объект, где ключ - id, а значение - value
   //3. return объект
@@ -38,8 +47,10 @@ export default class PopupWithForm extends Popup {
 
   _submitClose(evt) {
     evt.preventDefault();
+    this._renderLoading(true);
     this._callbackFunc(this._getInputValues());
     this.close();
+    this._renderLoading(false);
   }
   //1. навешивает сабмит на баттон, который вызывает callback  и туда передает return is value
   _setEventListeners() {

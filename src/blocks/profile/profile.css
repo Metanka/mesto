@@ -3,6 +3,8 @@
 @import url('./__title/profile__title.css');
 @import url('./__info/profile__info.css');
 @import url('./__title-box/profile__title-box.css');
+@import url('./__edit/profile__edit.css');
+@import url('./__box/profile__box.css');
 
 .profile {
   display: flex;

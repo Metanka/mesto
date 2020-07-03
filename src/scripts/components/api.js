@@ -1,68 +1,66 @@
 export default class Api {
-  constructor(cohordID, token) {
-    this._cohordID = cohordID;
-    this._token = token;
+  constructor(options) {
+    this._options = options;
+    this._baseUrl = options.baseUrl;
+    this._headers = options.headers;
   }
 
   fetchAuthorization() {
-    return fetch(`https://mesto.nomoreparties.co/v1/${this._cohordID}/cards`, {
-      headers: {
-        authorization: this._token
+    return fetch(`${this._baseUrl}/cards`, {
+      headers: this._headers
+    })
+    .then(res => {
+      if (res.ok) {
+        return res.json();
       }
     })
-      .then(res => res.json())
-      .then((result) => result)
       .catch((err) => {
         console.log(`Аттеншн! ${err}`);
       });
   }
 
   editProfileInfo(name, about) {
-    return fetch(`https://mesto.nomoreparties.co/v1/${this._cohordID}/users/me`, {
+    return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
-      headers: {
-        authorization: this._token,
-        'Content-Type': 'application/json'
-      },
+      headers: this._headers,
       body: JSON.stringify({
         name: name,
         about: about
       })
     })
-      .then(res => res.json)
-      .then(res => res)
+    .then(res => {
+      if (res.ok) {
+        return res.json();
+      }
+    })
       .catch(res => console.log(`АШИПКА! ${res}`));
   }
 
   addNewCard(data) {
-    return fetch(`https://mesto.nomoreparties.co/v1/${this._cohordID}/cards`, {
+    return fetch(`${this._baseUrl}/cards`, {
       method: 'POST',
-      headers: {
-        authorization: this._token,
-        'Content-Type': 'application/json'
-      },
+      headers: this._headers,
       body: JSON.stringify({
         link: data.link,
         name: data.name
       })
     })
-      .then(res => res.json())
-      .then(data => {
-        console.log({data});
-        return data;
-      })
+    .then(res => {
+      if (res.ok) {
+        return res.json();
+      }
+    })
       .catch(res => console.log(`АШИПКА! Карточек ${res}`));
   }
 
   getCardsInfo() {
-    return fetch(`https://mesto.nomoreparties.co/v1/${this._cohordID}/cards`, {
-      headers: {
-        authorization: this._token
-      }
+    return fetch(`${this._baseUrl}/cards`, {
+      headers: this._headers
     })
-      .then(res => res.json())
-      .then((res) => {
-        return res;
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
       })
       .catch((err) => {
         console.log(`Аттеншн! ${err}`);
@@ -71,40 +69,62 @@ export default class Api {
 
 
   getUserInfoServ() {
-    return fetch(`https://mesto.nomoreparties.co/v1/${this._cohordID}/users/me`, {
-      headers: {
-        authorization: this._token
+    return fetch(`${this._baseUrl}/users/me`, {
+      headers: this._headers
+    })
+    .then(res => {
+      if (res.ok) {
+        return res.json();
       }
     })
-      .then(res => res.json())
-      .then((res) => {
-        console.log({res});
-        return res;
-      })
       .catch((err) => {
         console.log(`Аттеншн! ${err}`);
       });
   }
 
   deleteCardServ(cardId) {
-    return fetch(`https://mesto.nomoreparties.co/v1/${this._cohordID}/cards/${cardId}`, {
+    return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: 'DELETE',
-      headers: {
-        authorization: this._token,
-      }
-    })
-    .then((res) => console.log(res));
-}
+      headers: this._headers
+    });
+  }
 
   addLikeServ(cardId) {
-    return fetch(`https://mesto.nomoreparties.co/v1/${this._cohordID}/cards/likes/${cardId}`, {
+    return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: 'PUT',
-      headers: {
-        authorization: this._token,
+      headers: this._headers
+    })
+    .then(res => {
+      if (res.ok) {
+        return res.json();
       }
     })
-    .then((res) => res.json())
-    .then(res => res)
-    .catch(res => console.log(`АШИБЛИСЬ ЛАЙКОМ ${res}`));
+      .catch(res => console.log(`АШИБЛИСЬ ЛАЙКОМ ${res}`));
+  }
+
+  deleteLikeServ(cardId) {
+    return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+      method: 'DELETE',
+      headers: this._headers
+    })
+      .then((res) => res.json())
+      .then(res => res)
+      .catch(res => console.log(`АШИБЛИСЬ ЛАЙКОМ ${res}`));
+  }
+
+  changeAvatar(avatarLink) {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar: avatarLink.link
+      })
+    })
+    .then(res => {
+      if (res.ok) {
+        return res.json();
+      }
+    })
+      .catch(res => console.log(`АШИБЛИСЬ АВАТАРКОЙ ${res}`));
   }
 }

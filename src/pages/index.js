@@ -17,13 +17,22 @@ import {
   popupViewSelector,
   profileTitle,
   profileSubtitle,
-  popupDeleteSelector
+  popupDeleteSelector,
+  popupAvatarSelector,
+  editAvatar,
+  popupFormAvatar
 } from '../scripts/utils/constants.js';
 import PopupWithForm from '../scripts/components/PopupWithForm.js';
-import Api from '../scripts/components/api';
+import Api from '../scripts/components/Api';
 import PopupCardDelete from '../scripts/components/PopupCardDelete';
 
-const api = new Api('cohort-12', 'e346800a-2f73-4d6f-bc1a-ba9dbf84295f');
+const api = new Api({
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-12',
+  headers: {
+    authorization: 'e346800a-2f73-4d6f-bc1a-ba9dbf84295f',
+    'Content-Type': 'application/json'
+  }
+});
 api.fetchAuthorization();
 
 const popupProfileValidation = new FormValidator(popupFormProfile, formObject);
@@ -32,9 +41,18 @@ popupProfileValidation.enableValidation();
 const popupImgValidation = new FormValidator(popupFormImg, formObject);
 popupImgValidation.enableValidation();
 
+const popupAvatarValidation = new FormValidator(popupFormAvatar, formObject);
+popupAvatarValidation.enableValidation();
+
 const showUserInfo = new UserInfo({name: profileTitle, info: profileSubtitle});
 api.getUserInfoServ().then(({name, about, avatar}) => {
-  showUserInfo.setUserInfo({name, info: about, avatar});
+  showUserInfo.setUserInfo({name, info: about});
+  showUserInfo.setUserAvatar({avatar});
+});
+
+const popupAvatar = new PopupWithForm(popupAvatarSelector, (inputValue) => {
+  showUserInfo.setUserAvatar(inputValue);
+  api.changeAvatar(inputValue);
 });
 
 const popupCardDelete = new PopupCardDelete(popupDeleteSelector, function () {
@@ -62,11 +80,14 @@ const createCards = new Section({
           .then(() => card.removeCard());
       });
     }, () => {
-         api.addLikeServ(_id).then((data) => {
-           console.log(data.likes);
-           card.setCounterInfo(data.likes);
-          }); 
-    });
+      api.addLikeServ(_id).then((data) => {
+        card.setCounterInfo(data.likes);
+      });
+    }, () => {
+      api.deleteLikeServ(_id).then((data) => {
+        card.setCounterInfo(data.likes);
+      });
+    }, api.getUserInfoServ());
     api.getUserInfoServ().then(({_id}) => card.checkCardId(_id));
     const cardElement = card.generateCard();
     createCards.addItem(cardElement);
@@ -86,5 +107,7 @@ editButton.addEventListener('click', () => {
     'profile-second': data.info,
   });
 });
+
+editAvatar.addEventListener('click', () => popupAvatar.open());
 
 addButton.addEventListener('click', () => popupImgForm.open());
