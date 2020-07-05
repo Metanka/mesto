@@ -1,9 +1,8 @@
-import {avatar} from '../utils/constants';
-
 export default class UserInfo {
-  constructor({name, info}) {
+  constructor({name, info}, avatar) {
     this._name = document.querySelector(`.${name}`);
     this._info = document.querySelector(`.${info}`);
+    this._avatar = avatar;
   }
 
   getUserInfo() {
@@ -19,6 +18,6 @@ export default class UserInfo {
   }
 
   setUserAvatar(data) {
-    avatar.src = (data.avatar || data.link);
+    this._avatar.src = (data.avatar || data.link);
   }
 }

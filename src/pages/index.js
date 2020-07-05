@@ -20,7 +20,8 @@ import {
   popupDeleteSelector,
   popupAvatarSelector,
   editAvatar,
-  popupFormAvatar
+  popupFormAvatar,
+  avatar
 } from '../scripts/utils/constants.js';
 import PopupWithForm from '../scripts/components/PopupWithForm.js';
 import Api from '../scripts/components/Api';
@@ -44,13 +45,14 @@ popupImgValidation.enableValidation();
 const popupAvatarValidation = new FormValidator(popupFormAvatar, formObject);
 popupAvatarValidation.enableValidation();
 
-const showUserInfo = new UserInfo({name: profileTitle, info: profileSubtitle});
+const showUserInfo = new UserInfo({name: profileTitle, info: profileSubtitle}, avatar);
 api.getUserInfoServ().then(({name, about, avatar}) => {
   showUserInfo.setUserInfo({name, info: about});
   showUserInfo.setUserAvatar({avatar});
 });
 
 const popupAvatar = new PopupWithForm(popupAvatarSelector, (inputValue) => {
+  popupAvatar._renderLoading(true);
   showUserInfo.setUserAvatar(inputValue);
   api.changeAvatar(inputValue);
 });
@@ -60,6 +62,7 @@ const popupCardDelete = new PopupCardDelete(popupDeleteSelector, function () {
 });
 
 const popupProfileForm = new PopupWithForm(popupProfileSelector, function (inputValues) {
+  popupProfileForm._renderLoading(true);
   showUserInfo.setUserInfo({
     name: inputValues.name,
     info: inputValues.info,
